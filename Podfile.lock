@@ -1,0 +1,37 @@
+PODS:
+  - APIKit (4.1.0):
+    - Result (~> 4.0)
+  - KeychainAccess (3.2.0)
+  - Kingfisher (5.3.1)
+  - Result (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+
+DEPENDENCIES:
+  - APIKit (~> 4.1)
+  - KeychainAccess (~> 3.2)
+  - Kingfisher (~> 5.0)
+  - RxCocoa (~> 4.5)
+  - RxSwift (~> 4.5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - APIKit
+    - KeychainAccess
+    - Kingfisher
+    - Result
+    - RxCocoa
+    - RxSwift
+
+SPEC CHECKSUMS:
+  APIKit: b84696b6bcb922bf74f454a53151500e60553007
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+
+PODFILE CHECKSUM: 6d13c82694931aa0c6fa58851b8a91d04e2d0335
+
+COCOAPODS: 1.6.0

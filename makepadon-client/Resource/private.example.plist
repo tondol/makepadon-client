@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ClientId</key>
+	<string>YOUR_CLIENT_ID</string>
+	<key>ClientSecret</key>
+	<string>YOUR_CLIENT_SECRET</string>
+	<key>MastodonHost</key>
+	<string>https://pawoo.net</string>
+</dict>
+</plist>
