@@ -6,7 +6,7 @@ What is this?
 
 This is a Mastodon Client app for iOS.
 
-This project is implemented for a study seminar of mobile apps programming.
+This project is created for a seminar of mobile apps programming.
 
 How to use
 ----
