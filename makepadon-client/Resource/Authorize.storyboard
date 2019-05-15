@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="54" y="744"/>
         </scene>
-        <!--Authorize View Controller-->
+        <!--ログイン-->
         <scene sceneID="wIC-pJ-fvA">
             <objects>
                 <viewController storyboardIdentifier="AuthorizeWebViewController" id="3xh-po-uPA" customClass="AuthorizeViewController" customModule="makepadon_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Sz-RX-3VF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KQ1-qX-7KX"/>
+                    <navigationItem key="navigationItem" title="ログイン" id="KQ1-qX-7KX"/>
                     <connections>
                         <outlet property="webViewContainer" destination="9EF-ZH-MVc" id="Brs-rS-imA"/>
                     </connections>

@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-772" y="27"/>
         </scene>
-        <!--ログイン-->
+        <!--まけぱどん-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="WelcomeViewController" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="makepadon_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ログイン" id="7tD-xn-ad3"/>
+                    <navigationItem key="navigationItem" title="まけぱどん" id="7tD-xn-ad3"/>
                     <connections>
                         <outlet property="button" destination="WvX-fg-Wf3" id="Azb-IC-6RZ"/>
                     </connections>
