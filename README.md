@@ -8,7 +8,7 @@ makepadon-client
 What is this?
 ----
 
-This is a Mastodon Client app for iOS.
+This is a Mastodon client app for iOS.
 
 This project is created for a seminar of mobile apps programming.
 
@@ -25,6 +25,8 @@ You have to fill some fields: `ClientId` , `ClientSecret` , and `MastodonHost` .
 `ClientId` and `ClientSecret` are what you got when you registered your app (can you remember?) .
 `MastodonHost` is the host of the Mastodon insntance you are using.
 `MastodonHost` has the following format: `https://mastodon.example.com` .
+
+To build with Xcode 10, please execute `pod install` in your terminal (this step is required for installing dependencies) .
 
 License
 ----
