@@ -28,6 +28,15 @@ You have to fill some fields: `ClientId` , `ClientSecret` , and `MastodonHost` .
 
 To build with Xcode 10, please execute `pod install` in your terminal (this step is required for installing dependencies) .
 
+Dependencies
+----
+
+- CocoaPods
+- APIKit
+- KeychainAccess
+- Kingfisher
+- RxSwift/RxCocoa
+
 License
 ----
 
