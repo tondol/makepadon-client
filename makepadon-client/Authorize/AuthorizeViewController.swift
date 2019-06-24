@@ -19,10 +19,18 @@ class AuthorizeViewController: UIViewController {
     fileprivate let bag = DisposeBag()
     
     fileprivate var webView: WKWebView?
+    fileprivate var presenter: AuthorizePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupWebView()
+        
+        presenter = AuthorizePresenter(useCase: AuthorizeUseCaseImpl())
+        setupBindings()
+    }
+    
+    private func setupWebView() {
         // プライベートモード的な動きをする WKWebView をインスタンス化。
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
@@ -35,6 +43,22 @@ class AuthorizeViewController: UIViewController {
         }
     }
     
+    private func setupBindings() {
+        presenter.retrieveDidSuccessMessage
+            .asSignal()
+            .emit(onNext: { [unowned self] _ in
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: bag)
+        
+        presenter.retrieveDidFailMessage
+            .asSignal()
+            .emit(onNext: { [unowned self] _ in
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: bag)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -44,35 +68,20 @@ class AuthorizeViewController: UIViewController {
             "redirect_uri": Constants.RedirectUri,
             "scope": "read write follow",
             ]
-        let queryString = URLEncodedSerialization.string(from: parameters)
-        let urlString = "\(Constants.MastodonHost)/oauth/authorize?\(queryString)"
-        webView?.load(URLRequest(url: URL(string: urlString)!))
+        let query = URLEncodedSerialization.string(from: parameters)
+        guard let url = URL(string: "\(Constants.MastodonHost)/oauth/authorize?\(query)") else { return }
+        self.webView?.load(URLRequest(url: url))
     }
 }
 
 extension AuthorizeViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // 他にいいやり方があるなら知りたい...
-        let queryCode = "document.querySelector('.oauth-code').value"
-        webView.evaluateJavaScript(queryCode) { [weak self] html, error in
+        let query = "document.querySelector('.oauth-code').value"
+        webView.evaluateJavaScript(query) { [weak self] html, error in
             guard let authorizationCode = html as? String else { return }
             
-            self?.retrieveAccessToken(authorizationCode: authorizationCode)
+            self?.presenter.retrieveAccessToken(authorizationCode: authorizationCode)
         }
-    }
-    
-    private func retrieveAccessToken(authorizationCode: String) {
-        // とりあえず ViewController に書いちゃう。
-        Session.rx_sendRequest(request: AuthorizeRequest(authorizationCode: authorizationCode))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] result -> Void in
-                MyKeychain.shared[MyKeychain.Keys.AccessToken] = result.accessToken
-                
-                self?.navigationController?.dismiss(animated: true, completion: nil)
-            }, onError: { [weak self] error -> Void in
-                self?.navigationController?.dismiss(animated: true, completion: nil)
-            })
-            .disposed(by: bag)
     }
 }

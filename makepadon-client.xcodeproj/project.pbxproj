@@ -17,6 +17,12 @@
 		2E4A5DFC22646EDC00DA8294 /* makepadon_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A5DFB22646EDC00DA8294 /* makepadon_clientUITests.swift */; };
 		2E4A5E0A2264777400DA8294 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A5E092264777400DA8294 /* ListViewController.swift */; };
 		2E4A5E0C226479D300DA8294 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A5E0B226479D300DA8294 /* ListCell.swift */; };
+		2EA70F4322C065A90079DDBF /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4222C065A90079DDBF /* WelcomePresenter.swift */; };
+		2EA70F4522C070AC0079DDBF /* AuthorizePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4422C070AC0079DDBF /* AuthorizePresenter.swift */; };
+		2EA70F4722C07B0E0079DDBF /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4622C07B0E0079DDBF /* ListPresenter.swift */; };
+		2EA70F4922C0A6010079DDBF /* ListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4822C0A6010079DDBF /* ListUseCase.swift */; };
+		2EA70F4B22C0A85D0079DDBF /* AuthorizeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4A22C0A85D0079DDBF /* AuthorizeUseCase.swift */; };
+		2EA70F4D22C0AA6B0079DDBF /* WelcomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70F4C22C0AA6B0079DDBF /* WelcomeUseCase.swift */; };
 		2ECD32EA228C45AA0085EA6A /* PublicTimelineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD32E9228C45AA0085EA6A /* PublicTimelineRequest.swift */; };
 		2ECD32EC228C49E50085EA6A /* PostStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD32EB228C49E50085EA6A /* PostStatusRequest.swift */; };
 		2ECD32EE228C4B7A0085EA6A /* private.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD32ED228C4B7A0085EA6A /* private.plist */; };
@@ -70,6 +76,12 @@
 		2E4A5DFD22646EDC00DA8294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4A5E092264777400DA8294 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2E4A5E0B226479D300DA8294 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		2EA70F4222C065A90079DDBF /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		2EA70F4422C070AC0079DDBF /* AuthorizePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizePresenter.swift; sourceTree = "<group>"; };
+		2EA70F4622C07B0E0079DDBF /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		2EA70F4822C0A6010079DDBF /* ListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUseCase.swift; sourceTree = "<group>"; };
+		2EA70F4A22C0A85D0079DDBF /* AuthorizeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUseCase.swift; sourceTree = "<group>"; };
+		2EA70F4C22C0AA6B0079DDBF /* WelcomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeUseCase.swift; sourceTree = "<group>"; };
 		2ECD32E9228C45AA0085EA6A /* PublicTimelineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTimelineRequest.swift; sourceTree = "<group>"; };
 		2ECD32EB228C49E50085EA6A /* PostStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStatusRequest.swift; sourceTree = "<group>"; };
 		2ECD32ED228C4B7A0085EA6A /* private.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = private.plist; sourceTree = "<group>"; };
@@ -148,7 +160,9 @@
 			children = (
 				2ECD32D7228B39360085EA6A /* Resource */,
 				2ECD32D6228B38FE0085EA6A /* API */,
-				2ECD32D5228B38F30085EA6A /* Controller */,
+				2ECD32D5228B38F30085EA6A /* Welcome */,
+				2EA70F4122C0656C0079DDBF /* Authorize */,
+				2EA70F4022C0654E0079DDBF /* List */,
 				2E4A5DDB22646EDA00DA8294 /* AppDelegate.swift */,
 				2EF91A19228940B80085C08A /* Constants.swift */,
 				2EF91A21228950CC0085C08A /* MyKeychain.swift */,
@@ -177,15 +191,39 @@
 			path = "makepadon-clientUITests";
 			sourceTree = "<group>";
 		};
-		2ECD32D5228B38F30085EA6A /* Controller */ = {
+		2EA70F4022C0654E0079DDBF /* List */ = {
 			isa = PBXGroup;
 			children = (
-				2E4A5DDD22646EDA00DA8294 /* WelcomeViewController.swift */,
+				2ECD32E9228C45AA0085EA6A /* PublicTimelineRequest.swift */,
+				2ECD32EB228C49E50085EA6A /* PostStatusRequest.swift */,
+				2EA70F4822C0A6010079DDBF /* ListUseCase.swift */,
+				2EA70F4622C07B0E0079DDBF /* ListPresenter.swift */,
 				2E4A5E0B226479D300DA8294 /* ListCell.swift */,
 				2E4A5E092264777400DA8294 /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2EA70F4122C0656C0079DDBF /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				2EF91A252289545A0085C08A /* AuthorizeRequest.swift */,
+				2EA70F4A22C0A85D0079DDBF /* AuthorizeUseCase.swift */,
+				2EA70F4422C070AC0079DDBF /* AuthorizePresenter.swift */,
 				2EF91A1B2289414E0085C08A /* AuthorizeViewController.swift */,
 			);
-			path = Controller;
+			path = Authorize;
+			sourceTree = "<group>";
+		};
+		2ECD32D5228B38F30085EA6A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				2EF91A29228961010085C08A /* VerifyCredentialsRequest.swift */,
+				2EA70F4C22C0AA6B0079DDBF /* WelcomeUseCase.swift */,
+				2EA70F4222C065A90079DDBF /* WelcomePresenter.swift */,
+				2E4A5DDD22646EDA00DA8294 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		2ECD32D6228B38FE0085EA6A /* API */ = {
@@ -193,10 +231,6 @@
 			children = (
 				2EF91A27228958BD0085C08A /* APIKit+Rx.swift */,
 				2EF91A23228952AC0085C08A /* MakepaRequest.swift */,
-				2EF91A252289545A0085C08A /* AuthorizeRequest.swift */,
-				2EF91A29228961010085C08A /* VerifyCredentialsRequest.swift */,
-				2ECD32E9228C45AA0085EA6A /* PublicTimelineRequest.swift */,
-				2ECD32EB228C49E50085EA6A /* PostStatusRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -481,14 +515,20 @@
 				2EF91A1E228943250085C08A /* UIViewController+StoryboardInstantiable.swift in Sources */,
 				2ECD32F2228C4C410085EA6A /* MyPlist.swift in Sources */,
 				2EF91A24228952AC0085C08A /* MakepaRequest.swift in Sources */,
+				2EA70F4322C065A90079DDBF /* WelcomePresenter.swift in Sources */,
 				2EF91A1A228940B80085C08A /* Constants.swift in Sources */,
 				2EF91A262289545A0085C08A /* AuthorizeRequest.swift in Sources */,
 				2E4A5DDE22646EDA00DA8294 /* WelcomeViewController.swift in Sources */,
+				2EA70F4922C0A6010079DDBF /* ListUseCase.swift in Sources */,
+				2EA70F4522C070AC0079DDBF /* AuthorizePresenter.swift in Sources */,
+				2EA70F4D22C0AA6B0079DDBF /* WelcomeUseCase.swift in Sources */,
+				2EA70F4722C07B0E0079DDBF /* ListPresenter.swift in Sources */,
 				2ECD32EC228C49E50085EA6A /* PostStatusRequest.swift in Sources */,
 				2E4A5E0C226479D300DA8294 /* ListCell.swift in Sources */,
 				2E4A5DDC22646EDA00DA8294 /* AppDelegate.swift in Sources */,
 				2EF91A22228950CC0085C08A /* MyKeychain.swift in Sources */,
 				2EF91A1C2289414E0085C08A /* AuthorizeViewController.swift in Sources */,
+				2EA70F4B22C0A85D0079DDBF /* AuthorizeUseCase.swift in Sources */,
 				2ECD32EA228C45AA0085EA6A /* PublicTimelineRequest.swift in Sources */,
 				2E4A5E0A2264777400DA8294 /* ListViewController.swift in Sources */,
 			);
